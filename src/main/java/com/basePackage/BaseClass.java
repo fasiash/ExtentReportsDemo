@@ -38,9 +38,11 @@ public class BaseClass {
 
 	@BeforeMethod
 	public void setup() {
-		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.chromedriver().setup();
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		ChromeOptions chromeOptions= new ChromeOptions();
 		chromeOptions.addArguments("headless");
+		chromeOptions.addArguments("disable-gpu");
 		chromeOptions.addArguments("window-size=1980,1080");
 	    driver = new ChromeDriver(chromeOptions);
 		driver.manage().window().maximize();
